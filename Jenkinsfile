@@ -1,12 +1,15 @@
 pipeline {
     agent any
-
+    tools {
+        git 'Git on Path' // השתמש בשם שהגדרת ב-Global Tool Configuration
+    }
     stages {
         stage('Checkout') {
             steps {
                 git 'https://github.com/Avikatz10/FinalProject.git'
             }
         }
+        // שאר השלבים נשארים כפי שהם
         stage('Build Docker Image') {
             steps {
                 script {
