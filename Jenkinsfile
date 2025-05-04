@@ -28,9 +28,8 @@ pipeline {
                     script {
                         def imageName = 'avikatz10/my-flask-app'
                         def imageTag = 'latest'
-                        docker.withRegistry('https://index.docker.io/v1/', '') {
-                            docker.image("${imageName}:${imageTag}").push()
-                        }
+                        sh "docker login -u '$DOCKER_USERNAME' -p '$DOCKER_PASSWORD'"
+                        sh "docker push ${imageName}:${imageTag}"
                     }
                 }
             }
