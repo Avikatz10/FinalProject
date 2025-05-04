@@ -28,8 +28,8 @@ pipeline {
                     script {
                         def imageName = 'avikatz10/my-flask-app'
                         def imageTag = 'latest'
-                        sh "docker login -u '$DOCKER_USERNAME' -p '$DOCKER_PASSWORD'"
-                        sh "docker push ${imageName}:${imageTag}"
+                        bat "docker login -u \"%DOCKER_USERNAME%\" -p \"%DOCKER_PASSWORD%\""
+                        bat "docker push ${imageName}:${imageTag}"
                     }
                 }
             }
