@@ -7,7 +7,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 checkout([$class: 'GitSCM',
-                          branches: [[name: 'origin/main']], // שנה ל-'origin/master' אם זה ה-branch שלך
+                          branches: [[name: 'origin/main']], // או 'origin/master'
                           doGenerateSubmoduleConfigurations: false,
                           extensions: [],
                           userRemoteConfigs: [[url: 'https://github.com/Avikatz10/FinalProject.git']]])
