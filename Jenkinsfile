@@ -6,7 +6,11 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/Avikatz10/FinalProject.git'
+                checkout([$class: 'GitSCM',
+                          branches: [[name: 'origin/main']], // שנה ל-'origin/master' אם זה ה-branch שלך
+                          doGenerateSubmoduleConfigurations: false,
+                          extensions: [],
+                          userRemoteConfigs: [[url: 'https://github.com/Avikatz10/FinalProject.git']]])
             }
         }
         stage('Build Docker Image') {
