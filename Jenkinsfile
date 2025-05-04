@@ -7,7 +7,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 checkout([$class: 'GitSCM',
-                          branches: [[name: 'origin/main']], // או 'origin/master'
+                          branches: [[name: 'origin/main']],
                           doGenerateSubmoduleConfigurations: false,
                           extensions: [],
                           userRemoteConfigs: [[url: 'https://github.com/Avikatz10/FinalProject.git']]])
